@@ -1,0 +1,154 @@
+ 
+  #video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+.form-container {
+    background: rgba(169, 207, 236, 0.9); /* Added transparency */
+    font-family: 'Nunito', sans-serif;
+    padding: 20px; 
+    border-radius: 30px;
+    box-shadow: 0px 0px 30px #cbced1;
+    max-width: 300px; 
+    margin: 20px auto;
+    text-align: center;
+} 
+
+.form-container .form-icon {
+    color: rgb(25, 96, 248);
+    font-size: 25px;  
+     text-align :center;
+    line-height: 40px; 
+    width: 50px;
+    height: 50px; 
+    margin: 0 auto 15px;
+    border-radius: 30px;
+    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #fff;
+}
+
+.form-container .title { 
+     color: rgb(25, 96, 248);
+    font-size: 15px; 
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 20px;
+} 
+
+ .form-horizontal .form-group {
+    margin: 0 0 20px 0;
+    text-align: left;
+} 
+.form-horizontal .form-group label {
+    font-size: 10px; 
+    font-weight: 400;
+    text-transform: uppercase;
+    display: block;
+ } 
+
+.form-horizontal .form-control {
+    color: #333;
+    background: #ecf0f3;
+    font-size: 12px; 
+    height: 25px; 
+    width: 80%;
+    padding: 3px 8px; 
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: inset 4px 4px 4px #cbced1, inset -4px -4px 4px #fff;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    margin-top: 5px; 
+}
+
+.form-horizontal .form-control:focus {
+    box-shadow: inset 4px 4px 4px #cbced1, inset -4px -4px 4px #fff;
+    outline: none;
+} 
+
+ .form-horizontal .form-control::placeholder {
+    color: #808080;
+    font-size: 10px; 
+}
+
+.form-horizontal .btn {
+    color: #000; 
+    background-color: rgb(117, 157, 245);
+    font-size: 12px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 80%; 
+    padding: 8px; 
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #cbced1, -4px -4px 4px #fff;
+    border: none;
+    transition: all 0.5s ease 0s; 
+     margin-top: 10px;
+}
+
+.form-horizontal .btn:hover,
+.form-horizontal .btn:focus {
+    color: #fff;
+    letter-spacing: 1px;
+    box-shadow: none;
+    outline: none; 
+ } 
+
+ .card {
+  
+    background-color: #a9cfec;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  #getStarted {
+    background-color: rgb(25, 96, 248) ;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #getStarted:hover {
+    background-color:  rgb(25, 96, 248);
+  }
+  
+  #getStarted:active {
+    background-color:  rgb(25, 96, 248);
+  }
+  /* #viewStock {
+    background-color: rgb(25, 96, 248) ;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  #viewStatus:hover {
+    background-color:rgb(25, 96, 248); ;
+  }
+  #viewStatus:active {
+    background-color:rgb(25, 96, 248); ;
+  } */

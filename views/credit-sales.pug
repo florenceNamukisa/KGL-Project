@@ -1,0 +1,58 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Happy Hoe Grocery Store
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='/css/register.css')
+.form-bg
+  .container
+    .row
+      .col-md-4.col-md-offset-4
+        .form-container
+          .form-icon
+            i.fa.fa-user
+          h3.title Credit Sales
+          form#creditForm.form-horizontal
+            .form-group
+              label(for='buyerName')  Buyer&apos;s Name:
+              input#buyerName.form-control(type='text' name='buyerName' required='' minlength='2')
+            .form-group
+              label(for='nationalId') National ID:
+              input#nationalId.form-control(type='text' name='nationalId' required='' pattern='[A-Z0-9]{14}')
+            .form-group
+              label(for='location') Location:
+              input#location.form-control(type='text' name='location' required='' minlength='2')
+            .form-group
+              label(for='contact') Contact:
+              input#contact.form-control(type='tel' name='contact' required='' pattern='[0-9]{10}')
+            .form-group
+              label(for='amountDue') Amount Due (UGX):
+              input#amountDue.form-control(type='number' name='amountDue' required='' min='10000')
+            .form-group
+              label(for='salesAgent') Sales Agent Name:
+              input#salesAgent.form-control(type='text' name='salesAgent' required='' minlength='2')
+            .form-group
+              label(for='branch') Branch:
+              select#branch.form-control(type='text' required='')
+                option(value='') Select Branch
+                option(value='mattuga') Mattuga
+                option(value='maganjo') Maganjo
+            div
+              label(for='dueDate') Due Date:
+              input#dueDate.form-control(type='date' name='dueDate')
+            .form-group
+              label(for='produceName') Produce Name:
+              input#produceName.form-control(type='text' name='produceName' required='' minlength='2')
+            .form-group
+              label(for='produceType') Type of Produce:
+              input#produceType.form-control(type='text' name='produceType')
+            .form-group
+              label(for='tonnage') Tonnage (kg):
+              input#tonnage.form-control(type='number' name='tonnage' required='' min='1')
+            .form-group
+              label(for='dispatchDate') Date of Dispatch:
+              input#dispatchDate.form-control(type='date' name='dispatchDate')
+            input.btn.btn-default(type='submit')
+script(src='/js/register.js')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js')

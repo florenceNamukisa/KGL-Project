@@ -1,0 +1,21 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Happy Hoe Grocery Store
+  link(rel='stylesheet' href='/styles/logout.css')
+.container
+  h1 Welcome!
+  form#logoutForm
+    p Are you sure you want to log out?
+    .radio-group
+      label
+        input(type='radio' name='logout' value='yes' required='')
+        |  Yes
+      label
+        input(type='radio' name='logout' value='no' required='')
+        |  No
+    br
+    button(type='submit')
+      a(href='/index.html')  LogOut
+script(src='./logout.html')

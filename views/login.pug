@@ -15,15 +15,15 @@ head
           form#loginForm.form-horizontal(action="/signUser" method="POST")
             .form-group
               label(for='email') Email
-              input#email.form-control(type='email' placeholder='Email address' required='')
+              input#email.form-control(type='email' placeholder='Email address' )
               span#email-error.error-message
             .form-group
               label(for='password') Password
-              input#password.form-control(type='password' placeholder='Password' required='')
+              input#password.form-control(type='password' placeholder='Password' )
               span#password-error.error-message
             .form-group
               label(for='role') Role
-              select#role.form-control(required='')
+              select#role.form-control()
                 option(value='') Select a role
                 option(value='manager') Manager
                 option(value='sales-agent') Sales Agent
