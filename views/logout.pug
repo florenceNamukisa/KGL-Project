@@ -6,7 +6,7 @@ head
   link(rel='stylesheet' href='/styles/logout.css')
 .container
   h1 Welcome!
-  form#logoutForm
+  form#logoutForm(action="/logout" method="POST")
     p Are you sure you want to log out?
     .radio-group
       label
@@ -17,5 +17,5 @@ head
         |  No
     br
     button(type='submit')
-      a(href='/index.html')  LogOut
-script(src='./logout.html')
+      a(href='/logout')  LogOut
+script(src='/register')

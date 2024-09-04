@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Sales Agent Dashboard
+    link(rel='stylesheet' href='/css/admin.css')
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')
+  body
+    .sidebar
+      h2 Sales Agent Dashboard
+      ul
+        li
+          a(href='/credit') Credit-Sales
+        li
+          a(href='/sales') Sales-List
+        li
+          a(href='/' onclick='logout()') Logout
+    .main-content
+      .top-navbar
+        ul
+          li
+            a(href='/') Home
+          li
+            a(href='/addSale') Sales
+          li
+            a(href='/addProduce') Procuments
+          li
+            a(href='/registerCredit') Credit-Sales
+      main.content 
+        block content
+      
+    script(src='/js/admin.js')

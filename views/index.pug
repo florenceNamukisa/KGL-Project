@@ -3,13 +3,18 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Happy Hoe Grocery Store
-  link(rel='stylesheet' href='/styles/pto.css')
-  link(rel='stylesheet' href='styles.css')
+  link(rel='stylesheet' href='/css/style.css')
   script(src='script.js' defer='')
+.background-image
+// Video moved inside the card container
 .card
   video#video-background(autoplay='' loop='' muted='')
     source(src='https://videos.pexels.com/video-files/8107718/8107718-uhd_2732_1440_25fps.mp4' type='video/mp4')
-  h1#welcome  Welcome To Happy Hoe Grocery
-  p#slogan &quot;Harvesting Quality, Nourishing Lives&quot;
+  h1#welcome.swing Welcome To Happy Hoe Grocery
+  p#slogan.typing &quot;Harvesting Quality, Nourishing Lives&quot;
   button#getStarted
-    a(href='./pages/viewStock.html')  Get Started
+    a(href='/signUser') Get Started
+// Moving images placed directly in the body
+img.image-left(src='https://as1.ftcdn.net/v2/jpg/07/84/00/94/1000_F_784009437_kVugWr6zfOVuRkLIylAC9L38fEJSJtMi.jpg' alt='Left Image')
+img.image-right(src='https://as1.ftcdn.net/v2/jpg/07/13/49/84/1000_F_713498423_MUHtWMqiTqWem5hc5uGuYavsFU91bIDu.jpg' alt='Right Image')
+img.small-image-right(src='https://as1.ftcdn.net/v2/jpg/04/27/90/02/1000_F_427900238_IWYhz1f4iaKV9tje0PpvZGc9VK5MJrnS.jpg' alt='Small Right Image')

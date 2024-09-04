@@ -1,38 +1,63 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+const Register = require('../models/register');
 
-const Register = require('../models/register'); // This is your user model
-
-router.get("/addUser", (req, res) => {
-    res.render("register");
+// Signup Routes
+router.get('/addUser', (req, res) => {
+    res.render('register');
 });
 
-// Register admin
-router.post("/addUser", async (req, res) => {
+// Add new user
+router.post('/addUser', async (req, res) => {
     try {
-        // Check if the user already exists
         const existingUser = await Register.findOne({ email: req.body.email });
         if (existingUser) {
-            return res
-                .status(400)
-                .send("Not registered, a user with a similar email already exists!");
+            return res.status(400).send('Not registered, a user with a similar email already exists!');
         }
 
-        // Create a new user using the Register model
-      // Incorrect: const user = new Register.register(req.body);
-const register = new Register(req.body);  // Corrected
-
-
-        // Register the user (assuming you're using Passport.js for authentication)
-        await Register.register(register, req.body.password, (err) => { 
+        const user = new Register(req.body);
+        await Register.register(user, req.body.password, (err) => {
             if (err) {
                 throw err;
             }
-            res.redirect("/login");
+            res.redirect('/signUser');
         });
     } catch (err) {
-        res.status(400).render("register", { title: "Register" });
-        console.log("register user error", err);
+        res.status(400).render('register', { title: 'Register' });
+        console.log('register user error', err);
+    }
+});
+
+// Login Routes
+router.get('/signUser', (req, res) => {
+    res.render('login');
+});
+
+// Route to handle login
+router.post('/signUser', passport.authenticate('local', { failureRedirect: '/signUser' }), (req, res) => {
+    req.session.user = req.user;
+
+    if (req.user.role === 'manager') {
+        res.redirect('/admin-dashboard');
+    } else if (req.user.role === 'sales-agent') {
+        res.redirect('/sale');
+    } else {
+        res.send('User with that role does not exist in the system');
+    }
+});
+
+// Logout route
+router.get('/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy((err) => {
+            if (err) {
+                return res.status(500).send('Error logging out');
+            }
+            res.redirect('/');
+        });
+    } else {
+        res.send('You do not have a session');
     }
 });
 

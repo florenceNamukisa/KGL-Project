@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const passport = require('passport');
 
-const passport = require("passport");
-const expressSession = require("express-session")({
+//sessions
+const expressSession = require('express-session')({
     secret: "secret",
     resave: false,
     saveUninitialized: false
@@ -11,26 +12,33 @@ const expressSession = require("express-session")({
 
 require('dotenv').config();
 
-//import models
+// Import models
 const Register = require('./models/register');
+const Sales = require('./models/sales');
+const Produce = require('./models/produce');
 const Credit = require('./models/credit');
+// const Admin = require('./models/admin');
 
-//importing routes
-
+// Import routes
 const registerRoutes = require('./routes/registerRoutes');
-const loginRoutes = require('./routes/loginRoutes');
+// const loginRoutes = require('./routes/loginRoutes');
+const produceRoutes = require('./routes/produceRoutes');
+const salesRoutes = require('./routes/salesRoutes');
+const indexRoutes = require('./routes/indexRoutes');
+const stockRoutes = require('./routes/stockRoutes');
 const creditRoutes = require('./routes/creditRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const userRoutes = require('./routes/userRoutes');
+const agentRoutes = require('./routes/agentRoutes.js');
 
-//instantiations
+
+// Instantiate app
 const app = express();
 const port = 3050;
 
-//configurations
-// set db connection to mongoose
-mongoose.connect(process.env.DATABASE_LOCAL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+// Configure MongoDB connection
+mongoose.connect(process.env.DATABASE_LOCAL,
+);
 
 mongoose.connection
     .once("open", () => {
@@ -40,17 +48,16 @@ mongoose.connection
         console.error(`Connection error: ${err.message}`);
     });
 
-//set view engine to pug
-
+// Set view engine to Pug
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
-//middleware
+// Middleware
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// express session configs
+// Express session configs
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
@@ -59,14 +66,21 @@ passport.use(Register.createStrategy());
 passport.serializeUser(Register.serializeUser());
 passport.deserializeUser(Register.deserializeUser());
 
-//Routes
+// Routes
+app.use('/', registerRoutes);
+// app.use('/', loginRoutes);
+app.use('/', produceRoutes);
+app.use('/', salesRoutes);
+app.use('/', indexRoutes);
+app.use('/', stockRoutes);
+app.use('/', creditRoutes);
+app.use('/', adminRoutes);
+app.use('/', userRoutes);
+app.use('/', agentRoutes);
 
-app.use('/', registerRoutes)
-app.use('/', loginRoutes)
-app.use('/', creditRoutes)
 app.get("*", (req, res) => {
-    res.send("error! page does not exist");
+    res.send("page does not exist");
 });
 
-//bootstraping a server
-app.listen(port, () => console.log(`listening on port ${port}`));
+// Start server
+app.listen(port, () => console.log(`Listening on port ${port}`));

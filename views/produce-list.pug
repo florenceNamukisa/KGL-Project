@@ -1,0 +1,50 @@
+extends admin-dashboard.pug 
+
+block content
+
+  doctype html
+  html(lang="en")
+    head
+      title Produce List
+      link(rel="stylesheet" href="/css/table.css")     
+    body
+      h1 Procument List
+      table
+        thead
+          tr
+            th Produce Name
+            th Produce Type 
+            th Date 
+            th Time 
+            th Tonnage (kg)
+            th cost Per Quantity ()
+            th Actual Price
+            th Dealer's Name 
+            th Branch
+            th Contact 
+            th Action
+        tbody
+          if  produce && produce.length 
+            each produceItem in produce 
+              tr
+                td #{produceItem.produceName}
+                td #{produceItem.produceType}
+                td #{produceItem.date}
+                td #{produceItem.time}
+                td #{produceItem.tonnage}
+                td #{produceItem.cost}
+                td #{produceItem.sellingPrice}
+                td #{produceItem.dealerName}
+                td #{produceItem.branch}
+                td #{produceItem.contact}
+                //- td
+                //- td #{new Date(produceItem.date)}
+                td 
+                    a(href=`/edit-produce/${produceItem._id}` class="edit-btn") Edit
+                td
+                  form(method="POST" action="/delete-produce")
+                    input(type="hidden" name="id" value=produceItem._id)
+                    button(class="delete-btn" type="submit") Delete
+          else 
+            tr
+              td(colspan="8") No procuments added yet!

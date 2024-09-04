@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= produce._id ? 'Edit Produce' : 'Add Produce'
+    link(rel="stylesheet" href="/css/form.css")
+  body
+    h2= produce._id ? 'Edit Produce Details' : 'Add Produce'
+    form(action= produce._id ? `/update-produce/${produce._id}` : '/addProduce', method="POST")
+      input(type="text" name="produceName" placeholder="Produce Name" value=produce.produceName required)
+      select(name="produceType" required)
+        option(value="" disabled selected) Select a Produce Type
+        option(value="cereals" selected=produce.produceType === "cereals") Cereals
+        option(value="grain" selected=produce.produceType === "grain") Grain
+      input(type="date" name="date" value=produce.date)
+      input(type="time" name="time" value=produce.time)
+      input(type="number" name="tonnage" placeholder="Tonnage (kg)" value=produce.tonnage required)
+      input(type="number" name="cost" placeholder="Cost Per Quantity (UGX)" value=produce.cost required)
+      input(type="text" name="dealerName" placeholder="Dealer's Name" value=produce.dealerName required)
+      select(name="branch" required)
+        option(value="" disabled selected) Select Branch
+        option(value="maganjo" selected=produce.branch === "maganjo") Maganjo
+        option(value="matuga" selected=produce.branch === "matuga") Matuga
+      input(type="tel" name="contact" pattern="[0-9]{10}" title="Valid 10-digit phone number" placeholder="Contact" value=produce.contact required)
+      input(type="number" name="sellingPrice" placeholder="Actual Price" value=produce.sellingPrice required)
+      input(type="submit" value="Save" class="btn btn-primary")
+    a(href="/produce") Go Back To Produce List

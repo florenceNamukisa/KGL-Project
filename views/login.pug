@@ -29,6 +29,13 @@ head
                 option(value='sales-agent') Sales Agent
                 option(value='admin') Admin
               span#role-error.error-message
+            .form-group
+              label(for='branch') Branch
+              select#branch.form-control()
+                option(value='') Select a branch
+                option(value='mattuga') Mattuga 
+                option(value='maganjo') Maganjo 
+              span#branch-error.error-mess
             //- .form-check
             //-   input#rememberMe.form-check-input(type='checkbox' name='remember' value='true')
             //-   label.form-check-label(for='rememberMe') Remember me
@@ -38,4 +45,5 @@ head
             //-     | Don&apos;t have account? 
             //-     a(href='.' style='color: rgb(25, 96, 248);') Create an account
             input(type="submit", value="login" class="login-btn")
-script(src='/js/pro.js')
+            a(href='/addUser') Don't have an account?  Register
+script(src='/js/login.js')

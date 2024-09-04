@@ -1,0 +1,54 @@
+extends admin-dashboard.pug 
+
+block content
+
+  doctype html
+  html(lang="en")
+    head
+      title Credit List
+      link(rel="stylesheet" href="/css/table.css")     
+    body
+      h1 Credit List
+      table
+        thead
+          tr
+            th Buyer Name
+            th National ID
+            th Location
+            th Contact 
+            th Amount Due (UGX)
+            th Sales Agent Name
+            th Branch 
+            th Due Date 
+            th Produce Name
+            th Type of Produce 
+            th Tonnage (kg) 
+            th Date of Dispatch
+            th Action
+        tbody
+          if credit.length 
+            each creditItem in credit
+              tr
+                td #{creditItem.buyerName}
+                td #{creditItem.nationalId}
+                td #{creditItem.location}
+                td #{creditItem.contact}
+                td #{creditItem.amountDue}
+                td #{creditItem.salesAgent}
+                td #{creditItem.branch}
+                td #{creditItem.dueDate}
+                td #{creditItem.produceName}  
+                td #{creditItem.produceType}
+                td #{creditItem.tonnage}
+                td #{creditItem.dispatchDate}
+                //- td
+                //- td #{new Date(produceItem.date)}
+                td 
+                    a(href=`/edit-credit/${creditItem._id}` class="edit-btn") Edit
+                td
+                  form(method="POST" action="/delete-credit")
+                    input(type="hidden" name="id" value=creditItem._id)
+                    button(class="delete-btn" type="submit") Delete
+          else 
+            tr
+              td(colspan="8") No Credit sale made yet!

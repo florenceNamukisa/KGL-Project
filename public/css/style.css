@@ -1,154 +1,189 @@
- 
-  #video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-}
-
-
-.form-container {
-    background: rgba(169, 207, 236, 0.9); /* Added transparency */
-    font-family: 'Nunito', sans-serif;
-    padding: 20px; 
-    border-radius: 30px;
-    box-shadow: 0px 0px 30px #cbced1;
-    max-width: 300px; 
-    margin: 20px auto;
-    text-align: center;
-} 
-
-.form-container .form-icon {
-    color: rgb(25, 96, 248);
-    font-size: 25px;  
-     text-align :center;
-    line-height: 40px; 
-    width: 50px;
-    height: 50px; 
-    margin: 0 auto 15px;
-    border-radius: 30px;
-    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #fff;
-}
-
-.form-container .title { 
-     color: rgb(25, 96, 248);
-    font-size: 15px; 
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0 0 20px;
-} 
-
- .form-horizontal .form-group {
-    margin: 0 0 20px 0;
-    text-align: left;
-} 
-.form-horizontal .form-group label {
-    font-size: 10px; 
-    font-weight: 400;
-    text-transform: uppercase;
-    display: block;
- } 
-
-.form-horizontal .form-control {
-    color: #333;
-    background: #ecf0f3;
-    font-size: 12px; 
-    height: 25px; 
-    width: 80%;
-    padding: 3px 8px; 
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 20px;
-    box-shadow: inset 4px 4px 4px #cbced1, inset -4px -4px 4px #fff;
-    display: inline-block;
-    transition: all 0.3s ease 0s;
-    margin-top: 5px; 
-}
-
-.form-horizontal .form-control:focus {
-    box-shadow: inset 4px 4px 4px #cbced1, inset -4px -4px 4px #fff;
-    outline: none;
-} 
-
- .form-horizontal .form-control::placeholder {
-    color: #808080;
-    font-size: 10px; 
-}
-
-.form-horizontal .btn {
-    color: #000; 
-    background-color: rgb(117, 157, 245);
-    font-size: 12px; 
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 80%; 
-    padding: 8px; 
-    border-radius: 10px;
-    box-shadow: 4px 4px 4px #cbced1, -4px -4px 4px #fff;
-    border: none;
-    transition: all 0.5s ease 0s; 
-     margin-top: 10px;
-}
-
-.form-horizontal .btn:hover,
-.form-horizontal .btn:focus {
-    color: #fff;
-    letter-spacing: 1px;
-    box-shadow: none;
-    outline: none; 
- } 
-
- .card {
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  overflow: hidden;
   
-    background-color: #a9cfec;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 400px;
-    margin: 50px auto;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://as1.ftcdn.net/v2/jpg/04/27/90/02/1000_F_427900238_IWYhz1f4iaKV9tje0PpvZGc9VK5MJrnS.jpg') no-repeat center center fixed;
+  background-size: cover;
+  transform: rotate(180deg); /* Flip the background image upside down */
+  opacity: 0.5; /* Adjust the opacity for blending */
+  z-index: -2; /* Below content but above the video */
+}
+
+#video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Behind text but within card */
+}
+
+.card {
+  position: relative;
+  z-index: 2; /* Position content above the video and images */
+  text-align: center;
+  color: rgb(17, 15, 15); /* Text color inside the card */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+#slogan {
+  font-style: italic;
+  margin-top: 10px;
+}
+
+button#getStarted {
+  background-color: rgb(25, 96, 248);
+  color: rgb(17, 15, 15); /* Button text color */
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button#getStarted a {
+  color: rgb(17, 15, 15); /* Button link color */
+  text-decoration: none;
+}
+
+button#getStarted:hover {
+  background-color: rgb(15, 80, 200); /* Slightly different hover color */
+}
+
+.image-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Prevent interactions */
+  z-index: 1; /* Below card, above video */
+}
+
+.image-left, .image-right {
+  position: absolute;
+  border-radius: 15px; /* Curved edges for the images */
+  overflow: hidden; /* Ensure content doesn’t spill over the rounded corners */
+}
+
+.image-left {
+  left: 0;
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  opacity: 1; /* Ensure image is clear */
+  animation: moveLeft 20s linear infinite;
+}
+
+.image-right {
+  right: 10px;
+  top: 10px;
+  width: 250px; /* Increased size of the right image */
+  height: auto;
+  object-fit: contain;
+  opacity: 0.8;
+  animation: moveAndBounce 10s linear infinite; /* Apply the new animation */
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(-100%);
   }
-  
-  #getStarted {
-    background-color: rgb(25, 96, 248) ;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  50% {
+    transform: translateX(0);
   }
-  
-  #getStarted:hover {
-    background-color:  rgb(25, 96, 248);
+  100% {
+    transform: translateX(100%);
   }
-  
-  #getStarted:active {
-    background-color:  rgb(25, 96, 248);
+}
+
+@keyframes moveAndBounce {
+  0% {
+    transform: translateX(0) translateY(0); /* Start position */
   }
-  /* #viewStock {
-    background-color: rgb(25, 96, 248) ;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  25% {
+    transform: translateX(-50vw) translateY(50vh); /* Move to the bottom left */
   }
-  #viewStatus:hover {
-    background-color:rgb(25, 96, 248); ;
+  50% {
+    transform: translateX(-100vw) translateY(-50vh); /* Move further left and up */
   }
-  #viewStatus:active {
-    background-color:rgb(25, 96, 248); ;
-  } */
+  75% {
+    transform: translateX(-50vw) translateY(50vh); /* Bounce back to the bottom left */
+  }
+  100% {
+    transform: translateX(0) translateY(0); /* Return to the start position */
+  }
+}
+
+/* Typing effect for the slogan with floating letters */
+.typing {
+  overflow: hidden;
+  border-right: .15em solid rgb(17, 15, 15); /* Cursor effect */
+  white-space: nowrap;
+  letter-spacing: .15em;
+  animation: typing 5s steps(30, end), blink-caret .75s step-end infinite, float 3s ease-in-out infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: rgb(17, 15, 15); }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Swinging animation for the welcome text */
+.swing {
+  display: inline-block;
+  animation: swing 2s infinite ease-in-out;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

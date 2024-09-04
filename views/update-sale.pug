@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Edit Sales
+    Link(rel="stylesheet" href="/css/form.css")     
+  body
+    h2 Edit Sales Details
+    form(action="/update-sale-page?id"+saleItem._id method="POST")
+      input(type="text" name="produceName" placeholder="Prduce Name" value=saleItem.produceName)
+      select(name="saletype")
+        option(value="" disabled selected) Select a Sale Type
+        option(value="cereals" selected = saleItem.saletype === "cereals") Cereals
+        option(value="grain" selected = saleItem.saletype === "grain") Grain
+      input(type="number" name="tonnage" placeholder="Tonnage (kg)" value=saleItem.tonnage)
+      input(type="number" name="amountPaid" placeholder="Amount Paid (UGX)" value=saleItem.amountPaid)
+      input(type="number" name="buyerName" placeholder="Buyer Name" value=saleItem.buyerName)
+      input(type="text" name="salesAgentName" placeholder="Sales Agent Name" value=saleItem.salesAgentName)
+      select(name="branch")
+        option(value="" disabled selected) Select Branch
+        option(value="maganjo" selected = saleItem.branch === "maganjo") Maganjo
+        option(value="matuga" selected = saleItem.branch === "matuga") Matuga        
+      input(type="text" name="dateTime" placeholder="Date Time" value=saleItem.dateTime)
+      input(type="submit" value="Save Changes")
+    a(href="/sales-list-page") Go Back To Stock List Page.
+

@@ -1,0 +1,57 @@
+
+doctype html
+ html(lang="en")
+    head
+      title Update Credit
+      link(rel="stylesheet" href="/css/register.css")
+    body
+      .form-bg
+        .container
+          .row
+            .col-md-6.offset-md-3
+              .form-container
+                .form-icon
+                  i.fa.fa-edit
+                h3.title Update Credit Information
+                form#updateCreditForm.form-horizontal(action=`/update-credit/${credit._id}` method='POST')
+                  .form-group
+                    label(for='buyerName') Buyer&apos;s Name:
+                    input#buyerName.form-control(type='text' name='buyerName' value=credit.buyerName)
+                  .form-group
+                    label(for='nationalId') National ID:
+                    input#nationalId.form-control(type='text' name='nationalId' value=credit.nationalId)
+                  .form-group
+                    label(for='location') Location:
+                    input#location.form-control(type='text' name='location' value=credit.location)
+                  .form-group
+                    label(for='contact') Contact:
+                    input#contact.form-control(type='tel' name='contact' value=credit.contact)
+                  .form-group
+                    label(for='amountDue') Amount Due (UGX):
+                    input#amountDue.form-control(type='number' name='amountDue' value=credit.amountDue)
+                  .form-group
+                    label(for='salesAgent') Sales Agent Name:
+                    input#salesAgent.form-control(type='text' name='salesAgent' value=credit.salesAgent)
+                  .form-group
+                    label(for='branch') Branch:
+                    select#branch.form-control(name='branch')
+                      option(value='') Select Branch
+                      option(value='mattuga' selected=credit.branch === 'mattuga') Mattuga
+                      option(value='maganjo' selected=credit.branch === 'maganjo') Maganjo
+                  .form-group
+                    label(for='dueDate') Due Date:
+                    input#dueDate.form-control(type='date' name='dueDate' value=credit.dueDate)
+                  .form-group
+                    label(for='produceName') Produce Name:
+                    input#produceName.form-control(type='text' name='produceName' value=credit.produceName)
+                  .form-group
+                    label(for='produceType') Type of Produce:
+                    input#produceType.form-control(type='text' name='produceType' value=credit.produceType)
+                  .form-group
+                    label(for='tonnage') Tonnage (kg):
+                    input#tonnage.form-control(type='number' name='tonnage' value=credit.tonnage)
+                  .form-group
+                    label(for='dispatchDate') Date of Dispatch:
+                    input#dispatchDate.form-control(type='date' name='dispatchDate' value=credit.dispatchDate)
+                  input.btn.btn-primary(type='submit' value='Update')
+                  a.btn.btn-secondary(href='/credit-list') Cancel

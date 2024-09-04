@@ -1,0 +1,42 @@
+extends admin-dashboard.pug 
+
+block content
+
+  doctype html
+  html(lang="en")
+    head
+      title Sales List
+      link(rel="stylesheet" href="/css/table.css")     
+    body
+      h1 Sales List
+      table
+        thead
+          tr
+            th Branch
+            th Produce Name
+            th Tonnage (kg)
+            th Amount Paid (UGX)
+            th Buyer's Name
+            th Sales Agent's Name
+            th Date and Time
+            th Action
+        tbody
+          if sales && sales.length 
+            each saleItem in sales
+              tr
+                td #{saleItem.branch}
+                td #{saleItem.produceName}
+                td #{saleItem.tonnage}
+                td #{saleItem.amountPaid}
+                td #{saleItem.buyerName}
+                td #{saleItem.salesAgentName}
+                td #{new Date(saleItem.dateTime).toLocaleString()}
+                td 
+                  a(href=`/edit-sale/${saleItem._id}` class="edit-btn") Edit
+                td
+                  form(method="POST" action="/delete-sale")
+                    input(type="hidden" name="id" value=saleItem._id)
+                    button(class="delete-btn" type="submit") Delete
+          else 
+            tr
+              td(colspan="8") No sales added yet!
