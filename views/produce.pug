@@ -15,7 +15,7 @@ html
               .form-icon
                 i.fa.fa-user
               h3.title= produce._id ? 'Edit Produce' : 'Procurement Form'
-              form#procurementForm.form-horizontal(action='/addProduce' method='POST')
+              form#procurementForm.form-horizontal(action=produce._id ? `/update-produce/${produce._id}` : '/addProduce' method='POST')
                 .form-group
                   label(for='produceName') Produce Name:
                   input#produceName.form-control(type='text' name='produceName' value=produce.produceName )
@@ -50,6 +50,6 @@ html
                   label(for='sellingPrice') Actual Price:
                   input#sellingPrice.form-control(type='number' name='sellingPrice' value=produce.sellingPrice)
                 input.btn.btn-default(type='submit' value='Save' class='register-btn btn btn-primary')
-    script(src='/js/procument.js')
+    //- script(src='/js/procument.js')
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js')
-  </body>
+

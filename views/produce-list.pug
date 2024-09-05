@@ -8,7 +8,7 @@ block content
       title Produce List
       link(rel="stylesheet" href="/css/table.css")     
     body
-      h1 Procument List
+      h1 Produce List
       table
         thead
           tr
@@ -16,16 +16,16 @@ block content
             th Produce Type 
             th Date 
             th Time 
-            th Tonnage (kg)
-            th cost Per Quantity ()
-            th Actual Price
+            th Tonnage (kgs)
+            th Cost 
             th Dealer's Name 
-            th Branch
+            th Branch 
             th Contact 
+            th Actual Price 
             th Action
         tbody
-          if  produce && produce.length 
-            each produceItem in produce 
+          if produce && produce.length 
+            each produceItem in produce
               tr
                 td #{produceItem.produceName}
                 td #{produceItem.produceType}
@@ -33,18 +33,16 @@ block content
                 td #{produceItem.time}
                 td #{produceItem.tonnage}
                 td #{produceItem.cost}
-                td #{produceItem.sellingPrice}
                 td #{produceItem.dealerName}
                 td #{produceItem.branch}
                 td #{produceItem.contact}
-                //- td
-                //- td #{new Date(produceItem.date)}
+                td #{produceItem.actualPrice}
                 td 
-                    a(href=`/edit-produce/${produceItem._id}` class="edit-btn") Edit
+                  a(href=`/edit-produce/${produceItem._id}` class="edit-btn") Edit
                 td
                   form(method="POST" action="/delete-produce")
                     input(type="hidden" name="id" value=produceItem._id)
                     button(class="delete-btn" type="submit") Delete
           else 
             tr
-              td(colspan="8") No procuments added yet!
+              td(colspan="8") No produce added yet!

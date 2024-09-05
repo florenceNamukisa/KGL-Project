@@ -1,6 +1,6 @@
-document.getElementById('loginForm').addEventListener('click', (e) => {
-
-  e.preventDefault();
+const login = document.querySelector(".login-btn");
+login.addEventListener("click", (event)=>{
+  event.preventDefault();
 
 // const form = document.getElementById('loginForm');
 const email = document.getElementById('email');

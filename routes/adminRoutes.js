@@ -16,7 +16,7 @@ router.get('/admin-dashboard', (req, res) => {
 
 // Route for the produce page
 router.get('/produce', (req, res) => {
-  res.render('produce'); // Renders the produce.pug
+  res.render('produce-list'); 
 });
 
 // Route for the credit-sales page
@@ -31,7 +31,7 @@ router.get('/logout', (req, res) => {
 // Route for the sales page
 router.get('/sales', async (req, res) => {
   try {
-    const sale = await Sale.find(); // Fetch all sales from the database
+    const sale = await sale.find(); // Fetch all sales from the database
 
     // Ensure `sales` is always an array, even if no sales are found
     res.render('sales-list', { sale: sale || [] });
