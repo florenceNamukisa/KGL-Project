@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Credit = require('../models/credit');
+const Produce = require('../models/produce'); 
 
 // Render the credit registration form
 router.get('/registerCredit', (req, res) => {
@@ -8,16 +9,32 @@ router.get('/registerCredit', (req, res) => {
 });
 
 // Handle credit registration
-router.post('/registerCredit', async (req, res) => {
+router.post('/registerCredit', async (req, res) =>{
   try {
-    const newCredit = new Credit(req.body); 
-    await newCredit.save();
+    const { produceName, tonnage } = req.body;
+    const produce = await Produce.findOne({ produceName });
+
+    if (!produce || produce.tonnage < tonnage) {
+      return res.status(400).send('Insufficient stock');
+    }
+
+    // Deduct from stock
+    produce.tonnage -= tonnage;
+    await produce.save();
+
+    // Add sale
+    const newcredit = new Credit(req.body);
+    await newcredit.save();
+
     res.redirect('/credit');
   } catch (err) {
     console.error(err);
-    res.status(500).send('Failed to register credit');
+    res.status(500).send('Error processing sale');
   }
 });
+
+
+
 
 // Render the list of credits
 router.get('/credit', async (req, res) => {

@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    title Sales Receipt
+    link(rel="stylesheet" href="/css/receipt.css")
+  body
+   .cointainer 
+    h1 Happy Hoe Grocery Ltd.
+    .contact-info
+      p Tel: +256 770821677
+      p Email: happyhoe08@gmail.com
+    h2 Receipt
+    .info
+      p Date: #{new Date(sale.dateTime).toLocaleString()}
+      p Branch: #{sale.branch}
+      p Sales Agent: #{sale.salesAgentName}
+      p Buyer: #{sale.buyerName}
+    .items
+      h3 Sales Details
+      table
+        thead
+          tr
+            th Produce Name
+            th Tonnage (kg)
+            th Amount Paid (UGX)
+        tbody
+          tr
+            td #{sale.produceName}
+            td #{sale.tonnage}
+            td #{sale.amountPaid}
+    .total
+      h3 Total Amount: #{sale.amountPaid} UGX
+    .footer
+      p Thank you for your purchase!
+    button(onclick="window.print()") Print Receipt

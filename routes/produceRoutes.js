@@ -91,5 +91,33 @@ router.post('/delete-produce', async (req, res) => {
     res.status(500).send('Failed to delete produce');
   }
 });
+router.get('/stock-view', async (req, res) => {
+  try {
+    const produce = await Produce.aggregate([
+      { 
+        $match: { produceName: { $in: ['Beans', 'Maize', 'Soyabeans', 'Cowpeas', 'Gnuts', 'Rice'] } }  
+      },
+      { 
+        $group: { 
+          _id: '$produceName', 
+          totalTonnage: { $sum: '$tonnage' }  
+        } 
+      }
+    ]);
+
+    
+    const produceData = produce.map(item => ({
+      produceName: item._id,  
+      tonnage: item.totalTonnage || 0 
+    }));
+
+    res.render('stock-view', {
+      produce: produceData,  
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 module.exports = router;

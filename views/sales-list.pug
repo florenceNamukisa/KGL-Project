@@ -19,7 +19,7 @@ block content
             th Buyer's Name
             th Sales Agent's Name
             th Date and Time
-            th Action
+            th Actions
         tbody
           if sales && sales.length 
             each saleItem in sales
@@ -37,6 +37,8 @@ block content
                   form(method="POST" action="/delete-sale")
                     input(type="hidden" name="id" value=saleItem._id)
                     button(class="delete-btn" type="submit") Delete
+                td 
+                  a(href=`/receipt/${saleItem._id}` class="receipt-btn") Receipt
           else 
             tr
               td(colspan="8") No sales added yet!

@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 100px auto; /* Adjusted to center the receipt vertically */
+  padding: 20px;
+  border: 1px solid #ddd; /* Set background color */
+  border-radius: 10px; /* Optional: rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+.cointainer{
+  background-color:#a9cfec;
+}
+
+
+.contact-info {
+  text-align: center;
+  font-size: medium;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.info, .items {
+  margin-bottom: 20px;
+}
+
+.items table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.items table th, .items table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.total {
+  margin-top: 20px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: rgb(25, 96, 248);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: rgb(25, 96, 248);
+}

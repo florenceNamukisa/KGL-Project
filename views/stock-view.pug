@@ -6,9 +6,19 @@ html
     title Happy Hoe Grocery Store
     link(rel='stylesheet' href='/css/view-stock.css')
   body
+    //- Navbar section
+    nav.navbar
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/addUser') Signup
+        li
+          a(href='/signUser') Login
+
+    //- Container for produce cards
     .container
-      video#background-video(autoplay, loop, muted)
-        source(src='https://videos.pexels.com/video-files/8107796/8107796-uhd_2732_1440_25fps.mp4' type='video/mp4')
-        | Your browser does not support the video tag.
-      #product-cards
-    script(src='/js/view.js')
+      each item in produce
+        .card
+          h2 #{item.produceName}
+          p Total Tonnage : #{item.tonnage || 0}

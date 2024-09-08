@@ -61,3 +61,14 @@ a:hover {
 .delete-btn:hover {
     background-color: #c60202;
 }
+.receipt-btn {
+    padding: 4px 12px;
+    background-color:  rgb(25, 96, 248);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+  

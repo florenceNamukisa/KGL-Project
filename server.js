@@ -29,7 +29,8 @@ const stockRoutes = require('./routes/stockRoutes');
 const creditRoutes = require('./routes/creditRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const userRoutes = require('./routes/userRoutes');
-const agentRoutes = require('./routes/agentRoutes.js');
+const agentRoutes = require('./routes/agentRoutes');
+
 
 
 // Instantiate app
