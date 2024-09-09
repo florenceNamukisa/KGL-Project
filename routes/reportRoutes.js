@@ -18,13 +18,11 @@ router.get('/report-data', async (req, res) => {
     const totalProduce = produceData.reduce((sum, p) => sum + p.tonnage, 0);
     const totalSales = salesData.reduce((sum, s) => sum + s.tonnage, 0);
     const availableStock = produceData.reduce((sum, p) => sum + p.stockLevel, 0);
-    const totalRevenue = salesData.reduce((sum, s) => sum + s.amountPaid, 0);
 
     res.json({
       totalProduce,
       totalSales,
       availableStock,
-      totalRevenue,
       salesData,
       stockData: produceData.map(p => ({ name: p.produceName, stock: p.stockLevel }))
     });

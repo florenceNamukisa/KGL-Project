@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", ()=>{
 const register = document.querySelector(".register-btn");
 register.addEventListener("click", (event)=>{
 event.preventDefault();
@@ -68,4 +69,5 @@ function validatePassword(password){
     const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     return re.test(password);
 }
+});
 });

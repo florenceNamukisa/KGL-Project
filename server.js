@@ -4,19 +4,15 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 //sessions
-const expressSession = require('express-session')({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: false
-});
+
 
 require('dotenv').config();
 
 // Import models
 const Register = require('./models/register');
-const Sales = require('./models/sales');
-const Produce = require('./models/produce');
-const Credit = require('./models/credit');
+// const Sales = require('./models/sales');
+// const Produce = require('./models/produce');
+// const Credit = require('./models/credit');
 // const Admin = require('./models/admin');
 
 // Import routes
@@ -28,8 +24,9 @@ const indexRoutes = require('./routes/indexRoutes');
 const stockRoutes = require('./routes/stockRoutes');
 const creditRoutes = require('./routes/creditRoutes');
 const adminRoutes = require('./routes/adminRoutes');
-const userRoutes = require('./routes/userRoutes');
+// const userRoutes = require('./routes/userRoutes');
 const agentRoutes = require('./routes/agentRoutes');
+const reportRoutes = require('./routes/reportRoutes');
 
 
 
@@ -59,6 +56,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Express session configs
+const expressSession = require('express-session')({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false
+});
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
@@ -76,8 +78,9 @@ app.use('/', indexRoutes);
 app.use('/', stockRoutes);
 app.use('/', creditRoutes);
 app.use('/', adminRoutes);
-app.use('/', userRoutes);
+// app.use('/', userRoutes);
 app.use('/', agentRoutes);
+app.use('/', reportRoutes);
 
 app.get("*", (req, res) => {
     res.send("page does not exist");

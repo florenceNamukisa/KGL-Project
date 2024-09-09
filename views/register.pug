@@ -15,33 +15,33 @@ html(lang='en')
               .form-icon
                 i.fa.fa-user
               h3.title Create Account
-              form#registrationForm.form-horizontal(action="/addUser" method="POST")
+              form#registrationForm.form-horizontal(onsubmit='submitForm()' action="/addUser" method="POST")
                 .form-group
                   label(for='userName') User Name
-                  input#userName.form-control(type='text' name='userName')
+                  input#userName.form-control(type='text' name='userName' required)
                 .form-group
                   label(for='role') Role
-                  select#role.form-control( name='role')
+                  select#role.form-control(name='role' required)
                     option(value='') Select a role
                     option(value='manager') Manager
                     option(value='sales-agent') Sales Agent
                     option(value='admin') Admin
                 .form-group
                   label(for='branch') Branch
-                  select#branch.form-control(name='branch')
+                  select#branch.form-control(name='branch' required)
                     option(value='') Select a branch
                     option(value='matuga') Matuga
                     option(value='maganjo') Maganjo
                 .form-group
                   label(for='email') Email
-                  input#email.form-control(type='email' placeholder='Email address' name='email')
+                  input#email.form-control(type='email' name='email' placeholder='Email address' required)
                 .form-group
                   label(for='password') Password
-                  input#password.form-control(type='password' placeholder='Password' name='password')
+                  input#password.form-control(type='password' name='password' placeholder='Password' required)
                 .form-group
                   label(for='confirmPassword') Confirm Password
-                  input#confirmPassword.form-control(type='password' placeholder='Confirm password' name='confirmPassword')
-                input(type="submit", value="Register" class="register-btn")
+                  input#confirmPassword.form-control(type='password' name='confirmPassword' placeholder='Confirm password' required)
+                input(type='submit' value='Register' class='register-btn')
                 a(href='/signUser') Already have an account? Login
-    script(src='/js/sign.js')
-    script(src='https://cdn.jsdelivr')
+    //- script(src='/js/sign.js')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js')

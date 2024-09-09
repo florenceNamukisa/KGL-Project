@@ -11,23 +11,42 @@ html
       h2 Sales Agent Dashboard
       ul
         li
-          a(href='/credit') Credit-Sales
+          a(href='/credit') Credit Sales
         li
-          a(href='/sales') Sales-List
+          a(href='/sales') Sales List
         li
-          a(href='/' onclick='logout()') Logout
+          a(href='javascript:void(0);' onclick='logout()') Logout
     .main-content
       .top-navbar
         ul
           li
             a(href='/') Home
           li
-            a(href='/addSale') Sales
+            a(href='/addSale') Add Sale
           li
-            a(href='/addProduce') Procuments
+            a(href='/addProduce') Add Produce
           li
-            a(href='/registerCredit') Credit-Sales
-      main.content 
+            a(href='/registerCredit') Register Credit
+      main.content
         block content
-      
     script(src='/js/admin.js')
+
+  //- Logout Function
+  script.
+    function logout() {
+      fetch('/logout', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          window.location.href = '/signUser'; // Redirect to login page after logout
+        } else {
+          console.log('Logout failed');
+        }
+      }).catch(error => {
+        console.error('Error during logout:', error);
+      });
+    }

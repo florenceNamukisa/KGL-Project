@@ -13,9 +13,11 @@ html
         li
           a(href='/produce') Procurement-List
         li
-          a(href='/credit') Credit-Sales
+          a(href='/credit') Credit-List
         li
           a(href='/sales') Sales-List
+        li 
+          a(href='/stock-view') Stock Status 
         li
           a(href='/' onclick='logout()') Logout
     .main-content
@@ -29,9 +31,7 @@ html
             a(href='/addProduce') Procuments
           li
             a(href='/registerCredit') Credit-Sales
-          li
-            a(href='/help') Help
-      main.content 
+      main.content(action='/admin-dashboard' method='POST') 
         block content
       
     script(src='/js/admin.js')

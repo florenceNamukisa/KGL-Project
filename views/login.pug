@@ -21,21 +21,21 @@ head
               label(for='password') Password
               input#password.form-control(type='password' placeholder='Password' )
               span#password-error.error-message
-            .form-group
-              label(for='role') Role
-              select#role.form-control()
-                option(value='') Select a role
-                option(value='manager') Manager
-                option(value='sales-agent') Sales Agent
-                option(value='admin') Admin
-              span#role-error.error-message
-            .form-group
-              label(for='branch') Branch
-              select#branch.form-control()
-                option(value='') Select a branch
-                option(value='mattuga') Mattuga 
-                option(value='maganjo') Maganjo 
-              span#branch-error.error-mess
+            //- .form-group
+            //-   label(for='role') Role
+            //-   select#role.form-control()
+            //-     option(value='') Select a role
+            //-     option(value='manager') Manager
+            //-     option(value='sales-agent') Sales Agent
+            //-     option(value='admin') Admin
+            //-   span#role-error.error-message
+            //- .form-group
+            //-   label(for='branch') Branch
+            //-   select#branch.form-control()
+            //-     option(value='') Select a branch
+            //-     option(value='mattuga') Mattuga 
+            //-     option(value='maganjo') Maganjo 
+            //-   span#branch-error.error-mess
             //- .form-check
             //-   input#rememberMe.form-check-input(type='checkbox' name='remember' value='true')
             //-   label.form-check-label(for='rememberMe') Remember me
@@ -46,4 +46,4 @@ head
             //-     a(href='.' style='color: rgb(25, 96, 248);') Create an account
             input(type="submit", value="login" class="login-btn")
             a(href='/addUser') Don't have an account?  Register
-script(src='/js/login.js')
+//- script(src='/js/login.js')

@@ -88,4 +88,8 @@ body {
     overflow: hidden;
     top: 50px; /* Pushes down below the top-navbar */
 }
+h1{
+    text-align: center;
+    margin-top: 50px;
+}
 
