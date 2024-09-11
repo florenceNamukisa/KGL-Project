@@ -8,7 +8,7 @@ body {
 /* Styles for the top horizontal navbar */
 .top-navbar {
     width: calc(100% - 150px); /* Adjust width to cover the rest of the page */
-    background-color: #333; /* Same color as the sidebar */
+    background-color: #3f6582; /* Same color as the sidebar */
     padding: 10px 25px; /* Increased padding on the left */
     position: fixed;
     top: 0;
@@ -37,13 +37,13 @@ body {
 }
 
 .top-navbar ul li a:hover {
-    background-color: #575757; /* Match sidebar hover effect */
+    background-color: #3f6582; /* Match sidebar hover effect */
     border-radius: 4px; /* Optional: Rounded edges on hover */
 }
 
 .sidebar {
     width: 150px;
-    background-color: #333;
+    background-color: #3f6582;
     color: white;
     padding: 15px;
     height: 100vh;

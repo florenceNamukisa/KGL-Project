@@ -31,22 +31,3 @@ html
         block content
     script(src='/js/admin.js')
 
-  //- Logout Function
-  script.
-    function logout() {
-      fetch('/logout', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          window.location.href = '/signUser'; // Redirect to login page after logout
-        } else {
-          console.log('Logout failed');
-        }
-      }).catch(error => {
-        console.error('Error during logout:', error);
-      });
-    }

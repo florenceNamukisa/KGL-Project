@@ -93,16 +93,6 @@ button#getStarted:hover {
   animation: moveLeft 20s linear infinite;
 }
 
-.image-right {
-  right: 10px;
-  top: 10px;
-  width: 250px; /* Increased size of the right image */
-  height: auto;
-  object-fit: contain;
-  opacity: 0.8;
-  animation: moveAndBounce 10s linear infinite; /* Apply the new animation */
-}
-
 @keyframes moveLeft {
   0% {
     transform: translateX(-100%);
@@ -115,23 +105,7 @@ button#getStarted:hover {
   }
 }
 
-@keyframes moveAndBounce {
-  0% {
-    transform: translateX(0) translateY(0); /* Start position */
-  }
-  25% {
-    transform: translateX(-50vw) translateY(50vh); /* Move to the bottom left */
-  }
-  50% {
-    transform: translateX(-100vw) translateY(-50vh); /* Move further left and up */
-  }
-  75% {
-    transform: translateX(-50vw) translateY(50vh); /* Bounce back to the bottom left */
-  }
-  100% {
-    transform: translateX(0) translateY(0); /* Return to the start position */
-  }
-}
+
 
 /* Typing effect for the slogan with floating letters */
 .typing {
