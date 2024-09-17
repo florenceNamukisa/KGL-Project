@@ -1,47 +1,40 @@
-const login = document.querySelector(".login-btn");
-login.addEventListener("click", (event)=>{
-  event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById('loginForm');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const emailError = document.getElementById('email-error');
+  const passwordError = document.getElementById('password-error');
 
-// const form = document.getElementById('loginForm');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
-const role = document.getElementById('role');
+  form.addEventListener('submit', function (event) {
+    let isValid = true;
 
-
-const emailError = document.getElementById('email-error');
-const passwordError = document.getElementById('password-error');
-const roleError = document.getElementById('role-error');
-
-
-
-  if (email.value === '') {
-    emailError.textContent = 'Email is required';
-  } else if (!email.value.includes('@')) {
-    emailError.textContent = 'Invalid email address';
-  } else {
+    // Clear previous error messages
     emailError.textContent = '';
-  }
-
-  if (password.value === '') {
-    passwordError.textContent = 'Password is required';
-  } else if (password.value.length < 8) {
-    passwordError.textContent = 'Password must be at least 8 characters long';
-  } else {
     passwordError.textContent = '';
+
+    // Email validation
+    const emailValue = emailInput.value.trim();
+    if (!validateEmail(emailValue)) {
+      emailError.textContent = 'Please enter a valid email address';
+      isValid = false;
+    }
+
+    // Password validation
+    const passwordValue = passwordInput.value.trim();
+    if (passwordValue.length < 8) {
+      passwordError.textContent = 'Password must be at least 8 characters long';
+      isValid = false;
+    }
+
+    if (!isValid) {
+      // Prevent form submission if validation fails
+      event.preventDefault();
+    }
+  });
+
+  // Email validation function using regex
+  function validateEmail(email) {
+    const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    return re.test(String(email).toLowerCase());
   }
-
-  if (role.value === '') {
-    roleError.textContent = 'Role is required';
-  } else {
-    roleError.textContent = '';
-  }
-
- 
-  if (emailError.textContent === '' && passwordError.textContent === '' && roleError.textContent === '') {
-  //   Submit the form
-  //   form.submit();
-  // } else {
-
-  //   alert('Please fill in all required fields');
-   }
 });

@@ -7,6 +7,14 @@ html
     link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet')
     link(rel='stylesheet' href='/css/register.css')
   body
+    nav.navbar
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/addSale') Sales 
+        li
+          a(href='/agent-dashboard') Agent-dashboard
     .form-bg
       .container
         .row
@@ -19,42 +27,55 @@ html
                 .form-group
                   label(for='buyerName') Buyer&apos;s Name:
                   input#buyerName.form-control(type='text' name='buyerName' value=credit.buyerName)
+                  span.error-message
                 .form-group
                   label(for='nationalId') National ID:
-                  input#nationalId.form-control(type='text' name='nationalId' value=credit.nationalId )
+                  input#nationalId.form-control(type='text' name='nationalId' value=credit.nationalId)
+                  span.error-message
                 .form-group
                   label(for='location') Location:
-                  input#location.form-control(type='text' name='location'  value=credit.location)
+                  input#location.form-control(type='text' name='location' value=credit.location)
+                  span.error-message
                 .form-group
                   label(for='contact') Contact:
-                  input#contact.form-control(type='tel' name='contact'  value=credit.contact)
+                  input#contact.form-control(type='tel' name='contact' value=credit.contact)
+                  span.error-message
                 .form-group
                   label(for='amountDue') Amount Due (UGX):
-                  input#amountDue.form-control(type='number' name='amountDue'  value=credit.amountDue)
+                  input#amountDue.form-control(type='number' name='amountDue' value=credit.amountDue)
+                  span.error-message
                 .form-group
                   label(for='salesAgent') Sales Agent Name:
-                  input#salesAgent.form-control(type='text' name='salesAgent'  value=credit.salesAgent)
+                  input#salesAgent.form-control(type='text' name='salesAgent' value=credit.salesAgent)
+                  span.error-message
                 .form-group
                   label(for='branch') Branch:
-                  select#branch.form-control(name='branch'  value=credit.branch)
+                  select#branch.form-control(name='branch' value=credit.branch)
                     option(value='') Select Branch
                     option(value='mattuga') Mattuga
                     option(value='maganjo') Maganjo
+                  span.error-message
                 .form-group
                   label(for='dueDate') Due Date:
                   input#dueDate.form-control(type='date' name='dueDate' value=credit.dueDate)
+                  span.error-message
                 .form-group
                   label(for='produceName') Produce Name:
                   input#produceName.form-control(type='text' name='produceName' value=credit.produceName)
+                  span.error-message
                 .form-group
                   label(for='produceType') Type of Produce:
                   input#produceType.form-control(type='text' name='produceType' value=credit.produceType)
+                  span.error-message
                 .form-group
                   label(for='tonnage') Tonnage (kg):
-                  input#tonnage.form-control(type='number' name='tonnage'  value=credit.tonnage)
+                  input#tonnage.form-control(type='number' name='tonnage' value=credit.tonnage)
+                  span.error-message
                 .form-group
-                 label(for='dispatchDate') Date of Dispatch:
-                  input#dispatchDate.form-control(type='date' name='dispatchDate'  value=credit.dispatchDate)
-                input.btn.btn-default(type='submit' value='Save' class='register-btn btn btn-primart')
-    script(src='/js/register.js')
+                  label(for='dispatchDate') Date of Dispatch:
+                  input#dispatchDate.form-control(type='date' name='dispatchDate' value=credit.dispatchDate)
+                  span.error-message
+                input.btn.btn-default(type='submit' value='Save' class='register-btn btn btn-primary')
+    script(src='/js/credit.js')
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js')
+

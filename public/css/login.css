@@ -1,16 +1,57 @@
 body {
     background: #F2F2F2;
-
+    background-image: url();
+    background-size: 100%; 
+    background-size: cover;
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
+/* Navbar Styling */
+.navbar {
+  background-color: #3f6582;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.navbar ul li a:hover {
+  color: #ddd;
+}
+
+/* Form Styling */
 .form-container {
     background: #a9cfec;
     font-family: 'Nunito', sans-serif;
-    padding: 30px; /* Increased padding for larger size */
+    padding: 30px;
     border-radius: 20px;
     box-shadow: 0px 0px 30px #cbced1;
-    max-width: 400px; /* Increased width for a larger form container */
-    margin: 40px auto; /* Centered and with more space around */
+    max-width: 400px;
+    margin: 100px auto 40px; /* Added 100px margin-top for space from the navbar */
     text-align: center;
 }
 
@@ -28,7 +69,7 @@ body {
 
 .form-container .title {
     color: rgb(25, 96, 248);
-    font-size: 18px; /* Slightly increased for better visibility */
+    font-size: 18px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -41,7 +82,7 @@ body {
 }
 
 .form-horizontal .form-group label {
-    font-size: 12px; /* Slightly increased for better readability */
+    font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
     display: block;
@@ -50,9 +91,9 @@ body {
 .form-horizontal .form-control {
     color: #333;
     background: #ecf0f3;
-    font-size: 14px; /* Increased font size for better visibility */
-    height: 35px; /* Uniform height for all inputs */
-    width: 90%; /* Consistent width for all input fields */
+    font-size: 14px;
+    height: 35px;
+    width: 90%;
     padding: 5px 10px;
     letter-spacing: 1px;
     border: none;
@@ -79,8 +120,8 @@ body {
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    width: 90%; /* Consistent width for the button as well */
-    padding: 10px; /* Increased padding for a larger button */
+    width: 90%;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 4px 4px 4px #cbced1, -4px -4px 4px #fff;
     border: none;
@@ -111,3 +152,10 @@ body {
     background-color: #4CAF50;
     color: white;
 }
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+    display: block;
+  }
+  

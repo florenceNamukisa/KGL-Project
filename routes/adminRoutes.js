@@ -21,7 +21,7 @@ router.get('/produce', (req, res) => {
 
 // Route for the credit-sales page
 router.get('/credit', (req, res) => {
-  res.render('credit-list'); // Renders the credit-sales.pug
+  res.render('credit-lists'); // Renders the credit-sales.pug
 });
 
 router.get('/logout', (req, res) => {

@@ -1,96 +1,77 @@
-try {
-document.addEventListener("DOMContentLoaded", ()=>{
-const register = document.querySelector(".register-btn");
-register.addEventListener("click", (event)=>{
-
-//GETTING THE VALUES
-const userName = document.getElementById("userName").value;
-const role = document.getElementById("role").value;
-const branch = document.getElementById("branch").value;
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-const confirmPassword = document.getElementById("confirmPassword").value;
-
-//Setting conditions
-
-let error = 0
-
-if (!userName){
-    alert("Please enter your name");
-    error++;
-    return;
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById('registrationForm');
+    const userName = document.getElementById('userName');
+    const role = document.getElementById('role');
+    const branch = document.getElementById('branch');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirmPassword');
     
-}
-function validateUserName(userName){
-    const re = /^[a-zA-Z]+$/;
-    return re.test(userName);
-}
-if (!validateUserName(userName)){
-    alert("Please enter a username with  both upper and lower case");
-    error++;
-    return;
-   
-}
-if (!role){
-    alert("Please select your role");
-    error++;
-    return;
-}
-if (!branch){
-    alert("Please select your branch");
-    error++;
-    return;
-}
-if (!email){
-    alert("Please enter your email");
-    error++;
-    return;
-}
-function validateEmail(email){
-    const re =/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-    return re.test(email);
-}
-
-if (!validateEmail(email)){
-    alert("Please enter a valid email address");
-    error++;
-    return;
-}
-if (!password){
-    alert("Please enter your password");
-    error++;
-    return;
-}
-
-function validatePassword(password){
-    const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    return re.test(password);
-}
-if (!validatePassword(password)){
-    alert("Password must be at least 8 characters long and contain both letters and numbers");
-    error++;
-    return;
-}
-if (!confirmPassword){
-    alert("Please confirm your password");
-    error++;
-    return;
-}
-
-if (password!== confirmPassword){
-    alert("Passwords do not match");
-    error++;
-    return;
-}
-
-if (error > 0){
-    event.preventDefault();
-}
-
-});
-});
-} catch (error){
-    console.error(error);
-    alert("An error occurred");
- 
-}
+    const errorUserName = document.getElementById('error-userName');
+    const errorRole = document.getElementById('error-role');
+    const errorBranch = document.getElementById('error-branch');
+    const errorEmail = document.getElementById('error-email');
+    const errorPassword = document.getElementById('error-password');
+    const errorConfirmPassword = document.getElementById('error-confirmPassword');
+    
+    form.addEventListener('submit', function (event) {
+      let isValid = true;
+      
+      // Clear previous error messages
+      errorUserName.textContent = '';
+      errorRole.textContent = '';
+      errorBranch.textContent = '';
+      errorEmail.textContent = '';
+      errorPassword.textContent = '';
+      errorConfirmPassword.textContent = '';
+      
+      // User name validation
+      if (userName.value.trim() === '') {
+        errorUserName.textContent = 'Please enter a valid username';
+        isValid = false;
+      }
+      
+      // Role validation
+      if (role.value.trim() === '') {
+        errorRole.textContent = 'Please select a role';
+        isValid = false;
+      }
+      
+      // Branch validation
+      if (branch.value.trim() === '') {
+        errorBranch.textContent = 'Please select a branch';
+        isValid = false;
+      }
+      
+      // Email validation
+      const emailValue = email.value.trim();
+      if (!validateEmail(emailValue)) {
+        errorEmail.textContent = 'Please enter a valid email address';
+        isValid = false;
+      }
+      
+      // Password validation
+      if (password.value.trim().length < 8) {
+        errorPassword.textContent = 'Password must be at least 8 characters long';
+        isValid = false;
+      }
+      
+      // Confirm password validation
+      if (password.value.trim() !== confirmPassword.value.trim()) {
+        errorConfirmPassword.textContent = 'Passwords do not match';
+        isValid = false;
+      }
+      
+      // If any validation fails, prevent form submission
+      if (!isValid) {
+        event.preventDefault();
+      }
+    });
+    
+    // Email validation function using regex
+    function validateEmail(email) {
+      const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/ ;
+      return re.test(String(email).toLowerCase());
+    }
+  });
+  

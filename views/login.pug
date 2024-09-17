@@ -6,6 +6,14 @@ html
     title Login
     link(rel='stylesheet' href='/css/login.css')
   body
+    nav.navbar
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/addUser') Signup
+       
+
     .form-bg
       .container
         .row
@@ -14,14 +22,16 @@ html
               .form-icon
                 i.fa.fa-user
               h3.title Login
-              form#loginForm.form-horizontal(action="/signUser" method="POST")
+              form#loginForm.form-horizontal(action="/signUser" method="POST" novalidate)
                 .form-group
                   label(for='email') Email
                   input#email.form-control(type='email' name='email' placeholder='Email address' required)
                   span#email-error.error-message
                 .form-group
                   label(for='password') Password
-                  input#password.form-control(type='password' name='password' placeholder='Password' required)
+                  input#password.form-control(type='password' name='password' placeholder='Password' required minlength='6')
                   span#password-error.error-message
                 input(type="submit" value="Login" class="login-btn")
                 a(href='/addUser') Don't have an account? Register
+
+    script(src='/js/login.js')
